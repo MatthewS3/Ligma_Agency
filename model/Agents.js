@@ -2,7 +2,7 @@ import { connection as db } from "../config/index.js"
 class Agents {
     fetchAgents(req, res) {
         const qry = `
-        SELECT agentID, agentCodeName, Agent Image,
+        SELECT agentID, agentCodeName, agentImage,
         agentRole, agentPrice
         FROM Agents;
         `
@@ -16,7 +16,7 @@ class Agents {
     }
     fetchAgent(req, res) {
         const qry = `
-        SELECT agentID, agentCodeName, Agent Image,
+        SELECT agentID, agentCodeName, agentImage,
         agentRole, agentPrice
         WHERE Agents = ${req.params.id};
         `

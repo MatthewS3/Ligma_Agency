@@ -19,7 +19,7 @@ class Users {
         });
     }
     fetchUser(req, res) {
-        const qry = `
+        const qry = ` 
         SELECT userID, userFirstName, userLastName,
         userEmail, userPassword, userContact,
         userRole
