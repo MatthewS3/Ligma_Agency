@@ -1,4 +1,4 @@
-import { express } from "express"
+import  express  from "express"
 import bodyParser from "body-parser"
 import { users } from "../model/index.js"
 import { verifyAToken } from "../middleware/UserAuthentication.js"
@@ -37,9 +37,6 @@ userRouter.post('/register', bodyParser.json(), (req, res) => {
         })
     }
 })
-
-import bcrypt from 'bcryptjs';
-import { DataTypes } from 'sequelize';
 
 const User = (sequelize) => {
     const model = sequelize.define('User', {
