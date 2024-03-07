@@ -1,10 +1,25 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <NavBar />
+  <div class="container-fluid">
+    <router-view />
+  </div>
+  <FooterView />
+
 </template>
+
+<script>
+// import NavBar from './components/NavBar';
+// import FooterView from './components/FooterView';
+// import SpinnerView from './components/SpinnerView';
+
+// export default {
+//   components: {
+//     NavBar,
+//     FooterView,
+//     SpinnerView
+//   }
+// }
+</script>
 
 <style>
 #app {
