@@ -6,7 +6,7 @@ config()
 function createToken(user) {
     return sign ({
         userEmail: user.userEmail,
-        userPassword: user.userPassword,
+        userPassword: user.userPassword
     },
     process.env.SECRET_KEY,
     {
@@ -17,7 +17,7 @@ function createToken(user) {
 
 function verifyAToken(req, res, next) {
     // Retrive a token from the browser
-    const token = req.headers['Autherization']
+    const token = req?.headers['Autherization']
     if(token) {
         if(verify(token, process.env.SECRET_KEY)) {
             next()

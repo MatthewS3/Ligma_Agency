@@ -35,23 +35,23 @@ agentRouter.post('/addAgent', bodyParser.json(), (req, res) => {
         })
     }
 })
-agentRouter.patch('/update/:id', bodyParser.json(), (req, res) => {
+agentRouter.patch('/updateAgent/:id', bodyParser.json(), (req, res) => {
     try {
         agents.updateAgent(req, res)
     } catch (e) {
         res.json({
             status: res.statusCode,
-            msg: "Updated an Agent"
+            msg: "Failed to Update an Agent"
         })
     }
 })
-agentRouter.delete('/delete/:id', bodyParser.json(), (req, res)=> {
+agentRouter.delete('/deleteAgent/:id', bodyParser.json(), (req, res)=> {
     try {
         agents.deleteAgent(req, res)
     } catch (e) {
         res.json({
             status: res.statusCode,
-            msg: "Deleted an Agent"
+            msg: "Failed to Delete an Agent"
         })
     }
 })
