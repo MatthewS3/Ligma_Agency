@@ -11,8 +11,8 @@ class Agents {
             res.json({
                 status: res.statusCode,
                 results
-            })
-        })
+            });
+        });
     }
     fetchAgent(req, res) {
         const qry = `
@@ -24,22 +24,50 @@ class Agents {
             if(err) throw err
             res.json({
                 status: res.statusCode,
-                result: result[ 0 ]
-            })
-        })
+                result,
+            });
+        });
     }
     addAgents(req, res) {
         const qry = `
         INSERT INTO Agents
+        SET ?'
         `
         db.query(qry, [req.body], (err) => {
             if(err) throw err
             res.json({
                 status: res.statusCode,
                 msg: "New Agent was Added"
-            })
-        })
+            });
+        });
     }
+    deleteAgent(req, res) {
+        const qry = `
+            delete from Agents
+            where agentID = ${req.params.id}
+            `;
+        db.query(qry, [req.body], (err) => {
+          if (err) throw err;
+          res.json({
+            status: res.statusCode,
+            msg: "The agent has been removed.",
+          });
+        });
+      }
+      updateAgent(req, res) {
+        const qry = `
+            update Agents
+            set ?
+            where agentID = ${req.params.id}
+            `;
+        db.query(qry, [req.body], (err) => {
+          if (err) throw err;
+          res.json({
+            status: res.statusCode,
+            msg: "The agent's details have been updated.",
+          });
+        });
+      }
 }
 export {
     Agents
