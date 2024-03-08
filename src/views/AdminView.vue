@@ -1,7 +1,7 @@
 <template>
-    <div>
-
-    </div>
+    <div class="admin">
+    <h1>This is an admin page</h1>
+  </div>
 </template>
 
 <script>
@@ -10,6 +10,6 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style>
 
 </style>
