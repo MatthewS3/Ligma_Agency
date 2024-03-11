@@ -132,6 +132,8 @@ ul {
     margin: 0;
     padding: 0;
     list-style: none;
+    font-family: "Playfair Display", serif;
+
 }
 
 img {
@@ -147,12 +149,15 @@ footer {
     color: #fff;
     padding: 50px;
     font-size: 17px;
+    font-family: "Playfair Display", serif;
 }
 
 footer h3 {
     font-size: 24px;
     font-weight: 600;
     letter-spacing: 5px;
+    font-family: "Playfair Display", serif;
+
 }
 
 footer h4 {

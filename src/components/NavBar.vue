@@ -57,6 +57,8 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
 .img-fluid {
     width: 100px;
     height: 100px;
@@ -65,14 +67,14 @@ export default {
 .navbar-nav li {
     margin-inline: 1rem;
     font-size: large;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: "Playfair Display", serif;
 }
 
 nav {
     padding: 20px;
     color: #ddd;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     letter-spacing: 3px;
+    font-family: "Playfair Display", serif;
 }
 
 nav a.nav-link:hover {
