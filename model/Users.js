@@ -1,5 +1,5 @@
 import { connection as db } from "../config/index.js";
-import { hash } from "bcrypt";
+import { hash, compare } from "bcrypt";
 import { createToken } from "../middleware/UserAuthentication.js";
 
 class Users {
@@ -58,7 +58,7 @@ class Users {
         res.json({
           status: res.statusCode,
           token,
-          msg: "You Are Now Registered",
+          msg: "You Email Has Been Registered",
         });
       }
     });

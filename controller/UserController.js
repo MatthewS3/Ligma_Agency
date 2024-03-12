@@ -21,7 +21,7 @@ userRouter.get('/:id', (req, res) => {
     } catch (e) {
         res.json({
             status: res.statusCode,
-            msg: "Failed to Retrieve User"
+            msg: "Failed to Retrieve a User"
         })
     }
 });
@@ -33,7 +33,7 @@ userRouter.post('/addUser', bodyParser.json(), (req, res) => {
     } catch (e) {
         res.json({
             status: res.statusCode,
-            msg: "Failed to Add a New user"
+            msg: "Failed to Add a New User"
         })
     }
 });
@@ -43,7 +43,7 @@ userRouter.delete('/deleteUser/:id', bodyParser.json(), (req, res) => {
     } catch (e) {
         res.json({
             status: res.statusCode,
-            msg: "This user has been deleted"
+            msg: "The User Has Been Deleted"
         })
     }
 });
@@ -53,7 +53,7 @@ userRouter.patch('/updateUser/:id', bodyParser.json(), (req, res) => {
     } catch (e) {
         res.json({
             status: res.statusCode,
-            msg: "The user has been updated"
+            msg: "The User Has Been Updated"
         })
     }
 })
@@ -63,7 +63,7 @@ userRouter.post('/login', bodyParser.json(), (req,res) => {
     } catch (e) {
         res.json({
             status: res.statusCode,
-            msg: "Failed to log in"
+            msg: "Failed to Log In"
         })
     }
 })
