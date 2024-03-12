@@ -18,6 +18,7 @@ class Agents {
         const qry = `
         SELECT agentID, agentCodeName, agentImage,
         agentRole, agentPrice
+        FROM Agents
         WHERE Agents = ${req.params.id};
         `
         db.query(qry, (err, result) => {
@@ -37,7 +38,7 @@ class Agents {
             if(err) throw err
             res.json({
                 status: res.statusCode,
-                msg: "New Agent was Added"
+                msg: "A New Agent Has Been Added"
             });
         });
     }
@@ -50,7 +51,7 @@ class Agents {
           if (err) throw err;
           res.json({
             status: res.statusCode,
-            msg: "The agent has been removed.",
+            msg: "An Agent Has Been Removed.",
           });
         });
       }
@@ -64,7 +65,7 @@ class Agents {
           if (err) throw err;
           res.json({
             status: res.statusCode,
-            msg: "The agent's details have been updated.",
+            msg: "An Agent's Details Have Been Updated.",
           });
         });
       }
