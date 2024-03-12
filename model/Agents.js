@@ -19,7 +19,7 @@ class Agents {
         SELECT agentID, agentCodeName, agentImage,
         agentRole, agentPrice
         FROM Agents
-        WHERE Agents = ${req.params.id};
+        WHERE agentID = ${req.params.id};
         `
         db.query(qry, (err, result) => {
             if(err) throw err
