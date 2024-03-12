@@ -5,7 +5,7 @@ import { useCookies } from 'vue3-cookies'
 const { cookies } = useCookies()
 import router from '@/router'
 
-const LigmaURL = 'https://ligma-agency.onrender.com'
+const LigmaURL = 'https://ligma-agency.onrender.com/'
 
 export default createStore({
   state: {
@@ -26,7 +26,7 @@ export default createStore({
     setAgents(state, value) {
       state.agents = value
     },
-    setAgent(state, value) {
+    setOneAgent(state, value) {
       state.agent = value
     },
   },
@@ -68,7 +68,7 @@ export default createStore({
         })
       }
     },
-    async fetchUser(context) {
+    async fetchUser(context, payload) {
       try {
         let result = (await axios.get(`${LigmaURL}users/${payload}`)).data
         if (result) {
@@ -155,6 +155,85 @@ export default createStore({
         })
       }
     },
+    async login(context, payload) {
+      try {
+        const {msg, token, result} = (await axios.post(`${LigmaURL}users/login`, payload)).data
+        if (result) {
+          context.commit('setUser', {msg, result})
+          cookies.set('LegitUser', {
+            msg, token, result
+          })
+
+          sweet ({
+            title: msg,
+            text: `Welcome Back,
+            ${result?.UserFirstName} ${result?.UserLastName}`,
+            icon: 'success',
+            timer: 2000
+          })
+            router.push({name: 'home'})
+        }else {
+          sweet ({
+            title: 'info',
+            text: 'text of login',
+            icon: 'info',
+            timer: 2000
+          })
+        }
+      }catch (e) {
+        sweet ({
+          title: 'ERROR',
+          text: 'FAILED To Login',
+          icon: 'error',
+          timer: 2000
+        })
+      }
+    },
+    async fetchAgents(context, payload) {
+      try {
+        let result = (await axios.get(`${LigmaURL}agents/${payload}`)).data
+        if (result) {
+          context.commit('setOneAgent', result)
+        }else {
+          sweet ({
+            title: 'Retrieving a single Agent',
+            text: 'FAILED To Retrieve An Agents Details',
+            icon: 'info',
+            timer: 2000
+          })
+        }
+      }catch (e) {
+        sweet ({
+          title: 'ERROR',
+          text: 'An Agent was Not Found',
+          icon: 'error',
+          timer: 2000
+        })
+      }
+    },
+    async addAgents(context, payload) {
+      try {
+        let msg = (await axios.post(`${LigmaURL}addAgents/`, payload)).data
+        if (msg) {
+          context.dispatch('fetchUsers')
+          sweet({
+            title: 'User Added',
+            text: "You have successfully registered!",
+            icon: "success",
+            timer: 2000
+          })
+
+          router.push({name: 'login'})
+        }
+      }catch (e) {
+        sweet({
+          title: 'Error',
+          text: 'Please try again later',
+          icon: "error",
+          timer: 2000
+        }) 
+      }
+    }
   },
   modules: {
   }
