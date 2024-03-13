@@ -9,7 +9,7 @@
                 <i class="fa fa-star" aria-hidden="true"></i>
                 <i class="fa fa-star" aria-hidden="true"></i>
                 <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
             </span>
 
             <p class="information">" Let's spread the joy , here is Christmas , the most awaited day of the
@@ -19,13 +19,11 @@
 
 
             <div class="control">
-
                 <button class="btn">
-                    <span class="price">$250</span>
+                    <span class="visa-card"><i class="fa fa-cc-visa" aria-hidden="true"></i></span>
                     <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
-                    <span class="buy">Get now</span>
+                    <slot name="cardLink"></slot>
                 </button>
-
             </div>
 
         </div>
@@ -34,14 +32,7 @@
             <slot name="cardImage"></slot>
             <div class="info">
                 <slot name="cardInfo"></slot>
-                <h2> Description</h2>
-                <ul>
-                    <li><strong>Height : </strong>5 Ft </li>
-                    <li><strong>Shade : </strong>Olive green</li>
-                    <li><strong>Decoration: </strong>balls and bells</li>
-                    <li><strong>Material: </strong>Eco-Friendly</li>
-
-                </ul>
+                
             </div>
         </div>
 
@@ -57,31 +48,30 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bree+Serif&family=EB+Garamond:ital,wght@0,500;1,800&display=swap');
 
-
-body {
-    background: #DFC2F2;
-    background-image: linear-gradient(to right, #ffffb3, #ffe6e6);
-    background-attachment: fixed;
-    background-size: cover;
-
-}
-
 #container11 {
-    box-shadow: 0 15px 30px 1px grey;
-    background: rgba(255, 255, 255, 0.90);
+    background: #111;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 40px;
     overflow: hidden;
     margin: 5em auto;
     height: 350px;
     width: 700px;
+    transition: 0.8s ease-in-out;
+}
 
-
+.product-image {
+    border-radius: 20px;
 }
 
 
 
+#container11:hover {
+    box-shadow: 0 5px 30px 20px #ff003c;
+    transform: scale(1.05);
+
+}
 .product-details {
+    color: #ddd;
     position: relative;
     text-align: left;
     overflow: hidden;
@@ -89,41 +79,7 @@ body {
     height: 100%;
     float: left;
     width: 40%;
-
 }
-
-#container11 .product-details h1 {
-    font-family: 'Bebas Neue', cursive;
-    display: inline-block;
-    position: relative;
-    font-size: 30px;
-    color: #344055;
-    margin: 0;
-
-}
-
-#container11 .product-details h1:before {
-    position: absolute;
-    content: '';
-    right: 0%;
-    top: 0%;
-    transform: translate(25px, -15px);
-    font-family: 'Bree Serif', serif;
-    display: inline-block;
-    background: #ffe6e6;
-    border-radius: 5px;
-    font-size: 14px;
-    padding: 5px;
-    color: white;
-    margin: 0;
-    animation: chan-sh 6s ease infinite;
-
-}
-
-
-
-
-
 
 .hint-star {
     display: inline-block;
@@ -132,46 +88,45 @@ body {
     width: 50%;
 }
 
-
 #container11 .product-details>p {
-    font-family: 'EB Garamond', serif;
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
     color: #7d7d7d;
 
 }
 
 .control {
     position: absolute;
-    bottom: 20%;
     left: 22.8%;
 
 }
 
 .btn {
-
-    transform: translateY(0px);
-    transition: 0.3s linear;
-    background: #809fff;
-    border-radius: 5px;
+    /* transform: translateY(0px); */
+    transition: 0.3s ease-in-out;
+    background: #ddd;
+    border-radius: 50px;
     position: relative;
     overflow: hidden;
     cursor: pointer;
     outline: none;
-    border: none;
-    color: #eee;
+    border: 2px solid #000;
+    color: #ddd;
     padding: 0;
     margin: 0;
 
 }
 
 .btn:hover {
-    transform: translateY(-6px);
-    background: #1a66ff;
+    transform: scale(1.1);
+    border: 2px solid #000;
+    background: #ddd;
+    color: #ff003c;
+    border-radius: 50px;
+
 }
 
 .btn span {
-    font-family: 'Farsan', cursive;
     transition: transform 0.3s;
     display: inline-block;
     padding: 10px 20px;
@@ -180,9 +135,9 @@ body {
 
 }
 
-.btn .price,
+.btn .visa-card,
 .shopping-cart {
-    background: #333;
+    background: #000;
     border: 0;
     margin: 0;
 }
@@ -195,7 +150,7 @@ body {
 .btn .shopping-cart {
     transform: translateX(-100%);
     position: absolute;
-    background: #333;
+    background: #000;
     z-index: 1;
     left: 0;
     top: 0;
@@ -222,7 +177,7 @@ body {
     position: relative;
     overflow: hidden;
     height: 100%;
-    float: right;
+    /* float: right; */
     width: 45%;
     display: inline-block;
 }
@@ -230,27 +185,23 @@ body {
 #container11 img {
     width: 100%;
     height: 100%;
+    transition: 0.5s;
 }
 
 .info {
     background: rgba(27, 26, 26, 0.9);
-    font-family: 'Bree Serif', serif;
-    transition: all 0.3s ease-out;
+    transition: all 0.5s ease-in-out;
     transform: translateX(-100%);
     position: absolute;
     line-height: 1.8;
-    text-align: left;
+    text-align: center;
     font-size: 105%;
-    cursor: no-drop;
+    font-weight: bold;
     color: #FFF;
     height: 100%;
     width: 100%;
     left: 0;
     top: 0;
-}
-
-.info h2 {
-    text-align: center
 }
 
 .product-image:hover .info {
