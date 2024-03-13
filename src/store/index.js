@@ -29,11 +29,14 @@ export default createStore({
     setOneAgent(state, value) {
       state.agent = value
     },
+    setlogin(state, value) {
+      state.user = value
+    }
   },
   actions: {
     async addUser(context, payload) {
       try {
-        let msg = await axios.post(`${LigmaURL}user`, payload)
+        let {msg} = await axios.post(`${LigmaURL}user`, payload)
         if (msg) {
           context.dispatch('fetchUser')
           sweet ({
@@ -55,7 +58,7 @@ export default createStore({
     },
     async fetchUsers(context) {
       try {
-        let results = (await axios.get(`${LigmaURL}users`)).data
+        let {results} = (await axios.get(`${LigmaURL}users`)).data
         if (results) {
           context.commit('setUsers', results)
         }
@@ -70,7 +73,7 @@ export default createStore({
     },
     async fetchUser(context, payload) {
       try {
-        let result = (await axios.get(`${LigmaURL}users/${payload}`)).data
+        let {result} = (await axios.get(`${LigmaURL}users/${payload}`)).data
         if (result) {
           context.commit('setUser', result)
         }else {
@@ -92,7 +95,7 @@ export default createStore({
     },
     async editUser(context, payload) {
       try {
-        let msg = await axios.patch(`${LigmaURL}users/${payload}`, payload)
+        let {msg} = await axios.patch(`${LigmaURL}users/${payload}`, payload)
         if (msg) {
           context.dispatch('fetchUsers')
           sweet ({
@@ -114,7 +117,7 @@ export default createStore({
     async deleteUser(context, payload) {
       try {
         console.log("payload: ", payload)
-        let msg = await axios.delete(`${LigmaURL}users/${payload}`)
+        let {msg} = await axios.delete(`${LigmaURL}users/${payload}`)
         if (msg) {
           context.dispatch('fetchUsers')
           sweet ({
@@ -136,7 +139,7 @@ export default createStore({
     async deleteAgent(context, payload) {
       try {
         console.log("payload: ", payload)
-        let msg  = await axios.delete(`${LigmaURL}agents/${payload}`)
+        let {msg}  = await axios.delete(`${LigmaURL}agents/${payload}`)
         if (msg) {
           context.dispatch('fetchAgents')
           sweet ({
@@ -189,9 +192,24 @@ export default createStore({
         })
       }
     },
-    async fetchAgents(context, payload) {
+    async fetchAgents(context) {
       try {
-        let result = (await axios.get(`${LigmaURL}agents/${payload}`)).data
+        let {results} = (await axios.get(`${LigmaURL}agents`)).data
+        if (results) {
+          context.commit('setAgents', results)
+        }
+      }catch (e) {
+        sweet ({
+          title: 'ERROR',
+          text: 'Agents Were Not Found',
+          icon: 'error',
+          timer: 2000
+        })
+      }
+    },
+    async fetchAgent(context, payload) {
+      try {
+        let {result} = (await axios.get(`${LigmaURL}agents/${payload}`)).data
         if (result) {
           context.commit('setOneAgent', result)
         }else {
@@ -213,7 +231,7 @@ export default createStore({
     },
     async addAgents(context, payload) {
       try {
-        let msg = (await axios.post(`${LigmaURL}addAgents/`, payload)).data
+        let {msg} = (await axios.post(`${LigmaURL}addAgents/`, payload)).data
         if (msg) {
           context.dispatch('fetchUsers')
           sweet({
