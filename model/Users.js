@@ -102,21 +102,23 @@ class Users {
                 userEmail, userPassword, userContact,
                 userRole
                 FROM Users
-                WHERE userEmail = '${userEmail}';
+                WHERE userEmail = ?;
         `;
-    db.query(qry, async (err, result) => {
+    db.query(qry, [userEmail], async(err, result) => {
       if (err) throw err;
       if (!result?.length) {
         res.json({
           status: statusCode,
           msg: "Wrong Email Address or Password Provided",
-        });
+        })
       } else {
         const validPass = await compare(userPassword, result[0].userPassword);
         if (validPass) {
           const token = createToken({
+            userID:result[0].userID,
             userEmail,
             userPassword,
+            userRole: result[0].userRole
           });
           res.json({
             status: res.statusCode,
