@@ -66,7 +66,7 @@ export default {
 
 
 #container11:hover {
-    box-shadow: 0 5px 30px 20px #ff003c;
+    /* box-shadow: 0 5px 30px 20px #ff003c; */
     transform: scale(1.05);
 
 }

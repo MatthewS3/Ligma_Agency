@@ -19,7 +19,7 @@
                   <label for="chk" aria-hidden="true">Login</label>
                   <input type="email" name="email" placeholder="Email" required="">
                   <input type="password" name="pswd" placeholder="Password" required="">
-                  <button>Login</button>
+                  <button @click="login()">Login</button>
               </form>
           </div>
       </div>
@@ -33,12 +33,13 @@ export default {
             userFirstName: "",
             userLastName: "",
             userEmail:"",
-            userPass:"",
+            userPassword:"",
             userRole:""
         }
     },
     methods: {
         login(){
+            this.data = { userEmail: this.userEmail, userPassword: this.userPassword}
             this.$store.dispatch('login',this.$data)
         },
         register(){

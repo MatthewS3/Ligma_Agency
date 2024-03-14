@@ -1,4 +1,5 @@
 <template>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <footer>
         <div class="container">
             <div class="footer-top">
@@ -6,11 +7,12 @@
                     <div class="col-md-6 col-lg-3 about-footer">
                         <h3> <span class="L">L</span>IGMA <span class="A">A</span>GENCY </h3>
                         <ul>
-                            <li><i class="fas fa-phone fa-flip-horizontal"></i>+27 12 345 6789</li>
-                            <li><i class="fas fa-map-marker-alt"></i>
-                                1 / 105 Bay Lights,
-                                <br />Lorem Ipsum,
-                                <br />LIC 3201
+                            <li><i class="fa fa-phone" aria-hidden="true"></i>
+                                +27 79 318 2409 <br> +27 21 123 4567</li>
+                            <li><i class="fa fa-map-marker" aria-hidden="true"></i>
+                                6969 Anita Max Wynn Avenue
+                                <br />Observatory Cape Town
+                                <br />2121
                             </li>
                         </ul>
                     </div>
@@ -19,7 +21,7 @@
                             <h4>Page links</h4>
                         </div>
                         <ul>
-                            <li><a href="#">Home</a></li>
+                            <li><i class="fa fa-home" aria-hidden="true"></i> Home</li>
                             <li><a href="#">About</a></li>
                             <li><a href="#">Contact</a></li>
                         </ul>
@@ -39,10 +41,10 @@
                         <div class="footer-title">
                             <h4>Open hours</h4>
                             <ul class="footer-social">
-                                <li><a href="" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                                <i class="fa fa-instagram" aria-hidden="true"></i>
+                                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                                <i class="fa fa-whatsapp" aria-hidden="true"></i>
                             </ul>
                         </div>
                         <table class="table">
@@ -98,15 +100,14 @@
 export default {
 
     data() {
-            return{
-                currYear: new Date().getFullYear()
-            }
+        return {
+            currYear: new Date().getFullYear()
         }
+    }
 }
 </script>
 
 <style>
-
 a,
 a:active,
 a:focus {
@@ -124,8 +125,9 @@ a:focus {
     -o-transition-duration: .2s;
 }
 
-.L , .A {
-    color:  #FF003C;
+.L,
+.A {
+    color: #FF003C;
 }
 
 ul {
@@ -145,7 +147,7 @@ img {
 
 footer {
     background-color: #000;
-    background-image: linear-gradient(to bottom,#000,#111, #222, #333);
+    background-image: linear-gradient(to bottom, #000, #111, #222, #333);
     color: #fff;
     padding: 50px;
     font-size: 17px;
@@ -209,8 +211,8 @@ ul.footer-social li {
 ul.footer-social i {
     width: 30px;
     height: 30px;
-    background: #444;
-    color: #222025;
+    background: #fff;
+    color: #000;
     text-align: center;
     line-height: 30px;
     border-radius: 30px;
@@ -228,7 +230,7 @@ ul.footer-social li:last-child {
 
 ul.footer-social i:hover {
     background: #FF003C;
-    color: #fff;
+    color: #000;
 }
 
 .page-more-info li {

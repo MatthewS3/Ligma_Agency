@@ -6,6 +6,7 @@ const { cookies } = useCookies()
 import router from '@/router'
 
 const LigmaURL = 'https://ligma-agency.onrender.com/'
+// const LigmaURL = 'http://localhost:4000/'
 
 export default createStore({
   state: {
@@ -95,7 +96,7 @@ export default createStore({
     },
     async editUser(context, payload) {
       try {
-        let {msg} = await axios.patch(`${LigmaURL}users/${payload}`, payload)
+        let msg = await axios.patch(`${LigmaURL}users/updateUser/${payload.userID}`, payload)
         if (msg) {
           context.dispatch('fetchUsers')
           sweet ({
@@ -109,7 +110,7 @@ export default createStore({
         sweet ({
           title: 'ERROR',
           text: 'An ERROR Occurred When Updating a User',
-          icon: 'success',
+          icon: 'error',
           timer: 2000
         })
       }
@@ -164,9 +165,9 @@ export default createStore({
         if (result) {
           context.commit('setUser', {msg, result})
           cookies.set('LegitUser', {
-            msg, token, result
+           token, result
           })
-
+          cookies.set("userRole", result.userRole)
           sweet ({
             title: msg,
             text: `Welcome Back,
