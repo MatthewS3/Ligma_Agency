@@ -5,8 +5,10 @@ config()
 
 function createToken(user) {
     return sign ({
+        userID: user.userID,
         userEmail: user.userEmail,
         userPassword: user.userPassword
+        
     },
     process.env.SECRET_KEY,
     {
@@ -17,9 +19,14 @@ function createToken(user) {
 
 function verifyAToken(req, res, next) {
     // Retrive a token from the browser
-    const token = req?.headers['Autherization']
+    // const token = req?.headers['Autherization']
+    const token = req?.cookies['Verified']
     if(token) {
         if(verify(token, process.env.SECRET_KEY)) {
+            verify(token, process.env.SECRET_KEY, (err,user) => {
+                if (err) throw err
+                req.body.userID = user.userID
+            })
             next()
         }else {
             res.json({
