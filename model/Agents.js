@@ -59,7 +59,7 @@ class Agents {
         const qry = `
             update Agents
             SET ?
-            WHERE AgentID = ${req.params.id}
+            WHERE agentID = ${req.params.id}
             `;
         db.query(qry, [data], (err) => {
           if (err) throw err;

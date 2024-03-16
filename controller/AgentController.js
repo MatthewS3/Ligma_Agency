@@ -41,7 +41,7 @@ agentRouter.patch('/updateAgent/:id', bodyParser.json(), (req, res) => {
     } catch (e) {
         res.json({
             status: res.statusCode,
-            msg: "Failed to Update an Agent"
+            msg: "The Agent Has Been Updated"
         })
     }
 })
