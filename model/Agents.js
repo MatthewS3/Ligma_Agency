@@ -55,17 +55,17 @@ class Agents {
           });
         });
       }
-      updateAgent(req, res) {
+      async updateAgent(req, res) {
         const qry = `
             update Agents
-            set ?
-            where agentID = ${req.params.id}
+            SET ?
+            WHERE AgentID = ${req.params.id}
             `;
-        db.query(qry, [req.body], (err) => {
+        db.query(qry, [data], (err) => {
           if (err) throw err;
           res.json({
             status: res.statusCode,
-            msg: "An Agent's Details Have Been Updated.",
+            msg: "The Agent's Details Was Updated",
           });
         });
       }
