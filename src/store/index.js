@@ -117,7 +117,6 @@ export default createStore({
     },
     async deleteUser(context, payload) {
       try {
-        console.log("payload: ", payload)
         let {msg} = await axios.delete(`${LigmaURL}users/${payload}`)
         if (msg) {
           context.dispatch('fetchUsers')
@@ -139,7 +138,6 @@ export default createStore({
     },
     async deleteAgent(context, payload) {
       try {
-        console.log("payload: ", payload)
         let {msg}  = await axios.delete(`${LigmaURL}agents/${payload}`)
         if (msg) {
           context.dispatch('fetchAgents')
@@ -252,7 +250,28 @@ export default createStore({
           timer: 2000
         }) 
       }
-    }
+    },
+    async editAgent(context, payload) {
+      try {
+        let msg = await axios.patch(`${LigmaURL}agents/updateAgent/${payload.agentID}`, payload)
+        if (msg) {
+          context.dispatch('fetchAgent')
+          sweet ({
+            title: 'Agent Edited',
+            text: 'The Agent Has Been Edited',
+            icon: 'success',
+            timer: 2000
+          })
+        }
+      }catch (e) {
+        sweet ({
+          title: 'ERROR',
+          text: 'An ERROR Occurred When Updating an Agent',
+          icon: 'error',
+          timer: 2000
+        })
+      }
+    },
   },
   modules: {
   }

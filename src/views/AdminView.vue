@@ -38,8 +38,9 @@
         <td>
           {{ user.userPassword }}
         </td>
-        <td><button class="btn btn-dark" @click="deleteUser(userID)">Delete</button>
-          <button @click="editUser(user.userID)" type="button" class="btn btn-dark" data-bs-toggle="modal" :data-bs-target="'#exampleModal' + userID">
+        <td><button class="btn1" @click="deleteUser(userID)">Delete</button>
+          <button @click="editUser(user.userID)" type="button" class="btn2" data-bs-toggle="modal"
+            :data-bs-target="'#exampleModal' + userID">
             edit
           </button>
         </td>
@@ -61,9 +62,8 @@
 
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" @click="editSubmit()">Save
-                  changes</button>
+                <button type="button" class="btn3" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn4" @click="editSubmit()">Save</button>
               </div>
             </div>
           </div>
@@ -111,8 +111,8 @@
         <td>
           {{ agent.agentTier }}
         </td>
-        <td><button class="btn btn-dark" @click="deleteAgent(agentID)">Delete</button>
-          <button type="button" class="btn btn-dark" data-bs-toggle="modal"
+        <td><button class="btn1" @click="deleteAgent(agentID)">Delete</button>
+          <button @click="editAgent(agent.agentID)" type="button" class="btn2" data-bs-toggle="modal"
             :data-bs-target="'#exampleModal1' + agentID">
             edit
           </button>
@@ -130,17 +130,16 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <input id="input" type="text" placeholder="Agent CodeName" v-model="agentCodeName">
-                <input id="input" type="text" placeholder="Agent Role" v-model="agentRole">
-                <input id="input" type="text" placeholder="Agent Price" v-model="agentPrice">
-                <input id="input" type="text" placeholder="Agent Status" v-model="agentStatus">
-                <input id="input" type="text" placeholder="Agent Tier" v-model="agentTier">
+                <input id="input" type="text" placeholder="Agent CodeName" v-model="agentPayload.agentCodeName">
+                <input id="input" type="text" placeholder="Agent Role" v-model="agentPayload.agentRole">
+                <input id="input" type="text" placeholder="Agent Price" v-model="agentPayload.agentPrice">
+                <input id="input" type="text" placeholder="Agent Status" v-model="agentPayload.agentStatus">
+                <input id="input" type="text" placeholder="Agent Tier" v-model="agentPayload.agentTier">
 
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" @click="editAgent(agentID)">Save
-                  changes</button>
+                <button type="button" class="btn3" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn4" @click="editSubmit1()">Save</button>
               </div>
             </div>
           </div>
@@ -172,6 +171,14 @@ export default {
         userEmail: "",
         userContact: "",
         userRole: "",
+      },
+      agentPayload: {
+        agentID: null,
+        agentCodeName: "",
+        agentRole: "",
+        agentPrice: "",
+        agentStatus: "",
+        agentTier: ""
       }
     }
   },
@@ -192,53 +199,58 @@ export default {
           this.userEmail = user.userEmail
           this.userContact = user.userContact,
 
-          this.userPayload = {
-            userID: user.userID,
-            userFirstName: this.userFirstName,
-            userLastName: this.userLastName,
-            userEmail: this.userEmail,
-            userContact: this.userContact,
-            userRole: this.userRole
+            this.userPayload = {
+              userID: user.userID,
+              userFirstName: this.userFirstName,
+              userLastName: this.userLastName,
+              userEmail: this.userEmail,
+              userContact: this.userContact,
+              userRole: this.userRole
+            }
+        }
+      })
+    },
+    editSubmit() {
+      this.$store.dispatch('editUser', this.userPayload)
+      location.reload()
+    },
+    addAgents() {
+      this.$store.dispatch('addAgents')
+    },
+    deleteAgent(agentID) {
+      this.$store.dispatch('deleteAgent', agentID)
+    },
+    editAgent(id) {
+      this.agents.forEach((agent) => {
+        if (agent.agentID == +id) {
+          this.agentCodeName = agent.agentCodeName
+          this.agentRole = agent.agentRole
+          this.agentPrice = agent.agentPrice
+          this.agentStatus = agent.agentStatus
+          this.agentTier = agent.agentTier
+  
+          this.agentPayload = {
+            agentID: agent.agentID,
+            agentCodeName: this.agentCodeName,
+            agentRole: this.agentRole,
+            agentPrice: this.agentPrice,
+            agentStatus: this.agentStatus,
+            agentTier: this.agentTier
           }
         }
       })
-      // let edit = {
-        
-        //   id: userID,
-        //   userFirstName: this.userFirstName,
-        //   userLastName: this.userLastName,
-        //   userEmail: this.userEmail,
-        //   userContact: this.userContact,
-        //   userRole: this.userRole
-        // }
-      },
-      editSubmit(){ 
-        this.$store.dispatch('editUser', this.userPayload)
-        location.reload()
-    }
-  },
-  addAgents() {
-    this.$store.dispatch('addAgents')
-  },
-  deleteAgent(agentID) {
-    this.$store.dispatch('deleteAgent', agentID)
-  },
-  editAgent(agentID) {
-    let edit = {
-      id: agentID,
-      agentCodeName: this.agentCodeName,
-      agentRole: this.agentRole,
-      agentPrice: this.agentPrice,
-      agentStatus: this.agentStatus,
-      agentTier: this.agentTier
-    }
-    this.$store.dispatch('editAgent', edit)
+    },
+    editSubmit1() {
+      this.$store.dispatch('editAgent', this.agentPayload)
+      location.reload()
+    },
   },
   mounted() {
     this.$store.dispatch('fetchUsers')
     this.$store.dispatch('fetchAgents')
-  },
+  }
 }
+
 </script>
 <style>
 .LG {
@@ -252,20 +264,72 @@ export default {
   letter-spacing: 2px;
 }
 
-
-
-#btn {
-  margin-top: 20px !important;
-  margin-bottom: 20px !important;
-  width: 100px !important;
-  height: 25px !important;
+.btn1 {
+  /* margin-top: 20px !important;
+  margin-bottom: 20px !important; */
+  width: 70px !important;
+  height: 30px !important;
   border-radius: 10px !important;
-  border: 1px solid black !important;
-  background-color: white !important;
-  color: black !important;
+  background-color: #FF003C !important;
+  color: #000 !important;
   font-size: 15px !important;
   font-weight: bold !important;
   cursor: pointer !important;
+  transition: 0.3s ease-in-out;
+}
+.btn1:hover {
+  transform: scale(0.9);
+}
+
+.btn2 {
+  /* margin-top: 20px !important;
+  margin-bottom: 20px !important; */
+  width: 70px !important;
+  height: 30px !important;
+  border-radius: 10px !important;
+  background-color: #ddd !important;
+  color: #000 !important;
+  font-size: 15px !important;
+  font-weight: bold !important;
+  cursor: pointer !important;
+  transition: 0.3s ease-in-out;
+
+}
+
+.btn2:hover {
+  transform: scale(0.9);
+}
+
+.btn3 {
+  width: 70px !important;
+  height: 30px !important;
+  border-radius: 10px !important;
+  background-color: #ddd !important;
+  color: #000 !important;
+  font-size: 15px !important;
+  font-weight: bold !important;
+  cursor: pointer !important;
+  transition: 0.3s ease-in-out;
+}
+
+.btn3:hover {
+  transform: scale(0.9);
+}
+
+.btn4 {
+  width: 70px !important;
+  height: 30px !important;
+  border-radius: 10px !important;
+  background-color: #FF003C !important;
+  color: #000 !important;
+  font-size: 15px !important;
+  font-weight: bold !important;
+  cursor: pointer !important;
+  transition: 0.3s ease-in-out;
+}
+
+.btn4:hover {
+  transform: scale(0.9);
 }
 
 #input {
