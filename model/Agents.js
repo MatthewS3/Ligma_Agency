@@ -58,6 +58,7 @@ class Agents {
         });
       }
       async updateAgent(req, res) {
+        let data = req.body
         const qry = `
             update Agents
             SET ?
