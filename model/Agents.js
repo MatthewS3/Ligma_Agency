@@ -3,7 +3,8 @@ class Agents {
     fetchAgents(req, res) {
         const qry = `
         SELECT agentID, agentCodeName, agentImage,
-        agentRole, agentPrice
+        agentRole, agentPrice, agentGender, agentStatus,
+        agentTier, agentQuote
         FROM Agents;
         `
         db.query(qry, (err, results) => {
@@ -17,7 +18,8 @@ class Agents {
     fetchAgent(req, res) {
         const qry = `
         SELECT agentID, agentCodeName, agentImage,
-        agentRole, agentPrice
+        agentRole, agentPrice, agentGender, agentStatus,
+        agentTier, agentQuote
         FROM Agents
         WHERE agentID = ?;
         `
