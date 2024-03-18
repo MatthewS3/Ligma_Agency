@@ -50,6 +50,7 @@ export default {
 
 #container11 {
     background: #111;
+    border: 2px solid #111;
     text-align: center;
     border-radius: 40px;
     overflow: hidden;
@@ -60,13 +61,13 @@ export default {
 }
 
 .product-image {
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 
 
 #container11:hover {
-    /* box-shadow: 0 5px 30px 20px #ff003c; */
+    box-shadow: 0 5px 30px 20px #333;
     transform: scale(1.05);
 
 }

@@ -16,7 +16,7 @@
           <li>Limited Access to Features</li>
           <li>Tier 1 Agent Access Only</li>
         </ul>
-        <a class="card__cta cta" href="/src//views//LoginView.vue">Get Started</a>
+        <a class="card__cta cta" href="/login">Get Started</a>
       </div>
       <div class="overlay cards__inner"></div>
     </div>
@@ -30,7 +30,7 @@
           <li>Unlimited Agent Requests</li>
           <li>Tier 1 & 2 Agent Access Allowed</li>
         </ul>
-        <a class="card__cta cta" href="/src//views//LoginView.vue">Get Started</a>
+        <a class="card__cta cta" href="/login">Get Started</a>
       </div>
       <div class="overlay cards__inner"></div>
     </div>
@@ -44,14 +44,14 @@
           <li>Unlimited Agent Requests</li>
           <li>All Agent Tiers Available</li>
         </ul>
-        <a class="card__cta cta" href="/src//views//LoginView.vue">Get Started</a>
+        <a class="card__cta cta" href="/login">Get Started</a>
       </div>
       <div class="overlay cards__inner"></div>
     </div>
   </div>
   <br>
   <br>
-  <a class="button" href="/src//views//LoginView.vue">View Agents</a>
+  <a class="button3" href="/login">View Agents</a>
 
 </template>
 
@@ -221,9 +221,9 @@ export default {
   transform: scale(1.09);
 }
 
-/* button */
+/* button3 */
 
-.button {
+.button3 {
   --glow-color: #ff003c;
   --glow-spread-color: #ff003c;
   --enhanced-glow-color: #ff003c;
@@ -244,7 +244,7 @@ export default {
   text-decoration: none;
 }
 
-.button::after {
+.button3::after {
   pointer-events: none;
   content: "";
   position: absolute;
@@ -258,14 +258,14 @@ export default {
   transform: perspective(1.9em) rotateX(35deg) scale(1, .6);
 }
 
-.button:hover {
+.button3:hover {
   color: var(--btn-color);
   background-color: var(--glow-color);
   box-shadow: 0 0 1em .25em var(--glow-color),
     inset 0 0 .75em .25em var(--glow-color);
 }
 
-.button:active {
+.button3:active {
   box-shadow: 0 0 0.6em .25em var(--glow-color),
     0 0 2.5em 2em var(--glow-spread-color),
     inset 0 0 .5em .25em var(--glow-color);

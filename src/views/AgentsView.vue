@@ -1,5 +1,5 @@
 <template>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <div class="agents">
     <h1 class="LG"><span class="MA">L</span>IGMA <span class="US">A</span>GENTS</h1>
     <div class="row">
@@ -22,11 +22,20 @@
           <h4 class="card-title">{{ agent.agentCodeName }}</h4>
         </template>
         <template #cardInfo>
-          <p class="card-text text-dark bg-gradient bg-dark-subtle p-2">
-            Role: {{ agent.agentRole }}
+          <p class="card-text text-black bg-gradient bg-dark-subtle p-3">
+            Role : {{ agent.agentRole }}
           </p>
-          <p class="card-text text-dark bg-gradient bg-dark-subtle p-2">
-            Amount: {{ agent.agentPrice }}
+          <p class="card-text text-black bg-gradient bg-dark-subtle p-3">
+            Amount : {{ agent.agentPrice }}
+          </p>
+          <p class="card-text text-black bg-gradient bg-dark-subtle p-1">
+            Gender : {{ agent.agentGender }}
+          </p>
+          <p class="card-text text-black bg-gradient bg-dark-subtle p-3">
+            Status : {{ agent.agentStatus }}
+          </p>
+          <p class="card-text text-black bg-gradient bg-dark-subtle p-3">
+            Rank : {{ agent.agentTier }}
           </p>
           <!-- <p class="card-text text-dark bg-gradient bg-dark-subtle p-2">
             Category: {{ agent.Category }}
@@ -37,6 +46,9 @@
 
         </template>
       </CardView>
+    </div>
+    <div class="row" v-else>
+      <SpinnerView />
     </div>
   </div>
 </template>

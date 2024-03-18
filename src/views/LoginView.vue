@@ -1,154 +1,302 @@
 <template>
-  <div class="container-fluid1">
-      <div class="main">
-          <input type="checkbox" id="chk" aria-hidden="true">
-
-          <div class="signup">
-              <form>
-                  <label for="chk" aria-hidden="true">Sign up</label>
-                  <input type="text" name="txt" placeholder="Firstname" required="">
-                  <input type="text" name="txt" placeholder="Lastname" required="">
-                  <input type="email" name="email" placeholder="Email" required="">
-                  <input type="password" name="pswd" placeholder="Password" required="">
-                  <button>Sign up</button>
-              </form>
-          </div>
-
-          <div class="login">
-              <form>
-                  <label for="chk" aria-hidden="true">Login</label>
-                  <input type="email" name="email" placeholder="Email" required="">
-                  <input type="password" name="pswd" placeholder="Password" required="">
-                  <button @click="login()">Login</button>
-              </form>
-          </div>
-      </div>
-  </div>
+    <div class="row">
+        <h1 class="LG"><span class="MA">L</span>IGMA <span class="US">L</span>OGIN & <span class="US">S</span>IGNUP</h1>
+    </div>
+    <br>
+    <div class="login-wrap">
+        <div class="login-html">
+            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">LOG
+                In</label>
+            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+            <div class="login-form">
+                <div class="sign-in-htm">
+                    <div class="group">
+                        <label for="user" class="label">Username</label>
+                        <input id="user" type="text" class="input">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Password</label>
+                        <input id="pass" type="password" class="input" data-type="password">
+                    </div>
+                    <div class="group">
+                        <input id="check" type="checkbox" class="check" checked>
+                        <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                    </div>
+                    <div class="group">
+                        <input type="submit" class="button" value="LOG In">
+                    </div>
+                    <div class="hr"></div>
+                    <div class="foot-lnk">
+                        <label for="tab-2">Dont have an Account?</label>
+                    </div>
+                </div>
+                <div class="sign-up-htm">
+                    <div class="group">
+                        <label for="user" class="label">Username</label>
+                        <input id="user" type="text" class="input">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Password</label>
+                        <input id="pass" type="password" class="input" data-type="password">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Repeat Password</label>
+                        <input id="pass" type="password" class="input" data-type="password">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Email Address</label>
+                        <input id="pass" type="text" class="input">
+                    </div>
+                    <div class="group">
+                        <input type="submit" class="button" value="Sign Up">
+                    </div>
+                    <div class="hr"></div>
+                    <div class="foot-lnk">
+                        <label for="tab-1">Already Member?</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
 export default {
-  data() {
+    data() {
         return {
             userFirstName: "",
             userLastName: "",
-            userEmail:"",
-            userPassword:"",
-            userRole:""
+            userEmail: "",
+            userPassword: "",
+            userRole: ""
         }
     },
     methods: {
-        login(){
-            this.data = { userEmail: this.userEmail, userPassword: this.userPassword}
-            this.$store.dispatch('login',this.$data)
+        login() {
+            this.data = { userEmail: this.userEmail, userPassword: this.userPassword }
+            this.$store.dispatch('login', this.$data)
         },
-        register(){
-            this.$store.dispatch('register',this.$data)
+        register() {
+            this.$store.dispatch('register', this.$data)
         },
-      
+
     }
 }
 </script>
 
 <style>
+*,
+:after,
+:before {
+    box-sizing: border-box;
+}
+
 .LG {
-  color: #ddd;
-  letter-spacing: 2px;
+    color: #ddd;
+    letter-spacing: 2px;
 }
 
 .MA,
 .US {
-  color: #FF003C;
-  letter-spacing: 2px;
-}
-.main {
-    width: 500px;
-    height: 500px;
-    overflow: hidden;
-    border-radius: 70px;
-    background-color: #444;
-    box-shadow: 5px 20px 50px #000;
+    color: #FF003C;
+    letter-spacing: 2px;
 }
 
-#chk {
+.clearfix:after,
+.clearfix:before {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.login-wrap {
+    width: 100%;
+    margin: auto;
+    max-width: 525px;
+    min-height: 670px;
+    position: relative;
+    background: url(https://cdn-images.imagevenue.com/c6/17/7a/ME17TFSE_o.png) no-repeat center;
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24),
+        0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.login-html {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    padding: 90px 70px 50px 70px;
+}
+
+.login-html .sign-in-htm,
+.login-html .sign-up-htm {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    transition: all 0.4s linear;
+}
+
+.login-html .sign-in,
+.login-html .sign-up,
+.login-form .group .check {
     display: none;
 }
 
-.signup {
+.login-html .tab,
+.login-form .group .label,
+.login-form .group .button {
+    text-transform: uppercase;
+}
+
+.login-html .tab {
+    font-size: 22px;
+    margin-right: 15px;
+    cursor: pointer;
+    padding-bottom: 5px;
+    margin: 0 15px 10px 0;
+    display: inline-block;
+    border-bottom: 2px solid transparent;
+}
+
+.login-html .sign-in:checked+.tab,
+.login-html .sign-up:checked+.tab {
+    color: #fff;
+    border-color: #FF003C;
+    cursor: pointer;
+}
+
+.login-form {
+    min-height: 345px;
     position: relative;
-    width: 500px;
-    height: 100%;
+    perspective: 1000px;
+    transform-style: preserve-3d;
 }
 
-label {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: #ddd;
-    font-size: 2.3em;
-    justify-content: center;
-    display: flex;
-    margin: 60px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: .5s ease-in-out;
+.login-form .group {
+    margin-bottom: 15px;
 }
 
-input {
-    width: 70%;
-    height: 40px;
-    background: #ddd;
-    color: #000;
-    justify-content: center;
-    display: flex;
-    margin: 20px auto;
-    padding: 10px;
-    border: none;
-    border-radius: 50px;
-}
-
-/* button {
-    width: 60%;
-    height: 40px;
-    margin: 10px auto;
-    justify-content: center;
+.login-form .group .label,
+.login-form .group .input,
+.login-form .group .button {
+    width: 100%;
+    color: #fff;
     display: block;
-    color: #000;
-    background: #999;
-    font-size: 1em;
-    font-weight: bold;
-    margin-top: 20px;
-    outline: none;
+}
+
+.login-form .group .input,
+.login-form .group .button {
     border: none;
-    border-radius: 5px;
-    transition: .5s ease-in;
+    padding: 15px 20px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.login-form .group input[data-type="password"] {
+    -webkit-text-security: circle;
+}
+
+.login-form .group .label {
+    color: #ddd;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.login-form .group .button {
+    background: #FF003C;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+
+.login-form .group .button:hover {
+    transform: scale(1.1);
     cursor: pointer;
 }
 
-button:hover {
-    background: tomato;
-} */
-
-.login {
-    height: 460px;
-    background: #111;
-    border-radius: 60% / 10%;
-    transform: translateY(-180px);
-    transition: 1s ease-in-out;
+.login-form .group label .icon {
+    width: 15px;
+    height: 15px;
+    border-radius: 2px;
+    position: relative;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
 }
 
-.login label {
+.login-form .group label .icon:before,
+.login-form .group label .icon:after {
+    content: "";
+    width: 10px;
+    height: 2px;
+    background: #fff;
+    position: absolute;
+    transition: all 0.2s ease-in-out 0s;
+}
+
+.login-form .group label .icon:before {
+    left: 3px;
+    width: 5px;
+    bottom: 6px;
+    transform: scale(0) rotate(0);
+}
+
+.login-form .group label .icon:after {
+    top: 6px;
+    right: 0;
+    transform: scale(0) rotate(0);
+}
+
+.login-form .group .check:checked+label {
+    color: #fff;
+}
+
+.login-form .group .check:checked+label .icon {
+    background: #FF003C;
+}
+
+.login-form .group .check:checked+label .icon:before {
+    transform: scale(1) rotate(45deg);
+}
+
+.login-form .group .check:checked+label .icon:after {
+    transform: scale(1) rotate(-45deg);
+}
+
+.login-html .sign-in:checked+.tab+.sign-up+.tab+.login-form .sign-in-htm {
+    transform: rotate(0);
+}
+
+.login-html .sign-up:checked+.tab+.login-form .sign-up-htm {
+    transform: rotate(0);
+}
+
+.hr {
+    height: 2px;
+    margin: 60px 0 50px 0;
+    background: #FF003C;
+}
+
+.foot-lnk {
+    text-align: center;
     color: #ddd;
-    transform: scale(.6);
+    transition: 0.4s ease-in-out;
+    font-weight: bold;
 }
 
-#chk:checked~.login {
-    transform: translateY(-500px);
-}
-
-#chk:checked~.login label {
-    transform: scale(1);
-}
-
-#chk:checked~.signup label {
-    transform: scale(.6);
+.foot-lnk:hover {
+    transform: scale(1.3);
+    color: #ddd;
+    font-weight: bold;
 }
 </style>

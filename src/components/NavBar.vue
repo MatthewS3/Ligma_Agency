@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar-dark bg-black navbar-expand-lg">
+    <nav class="navbar-dark sticky-top bg-black navbar-expand-lg">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
