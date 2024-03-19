@@ -11,7 +11,7 @@
             <div class="login-form">
                 <div class="sign-in-htm">
                     <div class="group">
-                        <label for="user" class="label">Username</label>
+                        <label for="user" class="label">Username / Email</label>
                         <input id="user" type="text" class="input">
                     </div>
                     <div class="group">
@@ -32,15 +32,15 @@
                 </div>
                 <div class="sign-up-htm">
                     <div class="group">
-                        <label for="user" class="label">Username</label>
+                        <label for="user" class="label">First Name</label>
                         <input id="user" type="text" class="input">
                     </div>
                     <div class="group">
-                        <label for="pass" class="label">Password</label>
+                        <label for="pass" class="label">Last Name</label>
                         <input id="pass" type="password" class="input" data-type="password">
                     </div>
                     <div class="group">
-                        <label for="pass" class="label">Repeat Password</label>
+                        <label for="pass" class="label">Password</label>
                         <input id="pass" type="password" class="input" data-type="password">
                     </div>
                     <div class="group">

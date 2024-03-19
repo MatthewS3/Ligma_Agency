@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 import axios from 'axios'
 import sweet from 'sweetalert'
 import { useCookies } from 'vue3-cookies'
+import { applyToken } from '@/service/userAuthenticate.js'
 const { cookies } = useCookies()
 import router from '@/router'
 
@@ -270,6 +271,91 @@ export default createStore({
           icon: 'error',
           timer: 2000
         })
+      }
+    },
+    async fetchCart(context, payload) {
+      try {
+        applyToken()
+        let { result } = (await axios.get(`${LigmaURL}cart?userID = ${payload}`)).data;
+        if(result) {
+          context.commit("setCart", result);
+        }
+      } catch (e) {
+        sweet ({
+          title: "ERROR",
+          text: "An ERROR occured while retrieving your Cart",
+          icon: "error",
+          timer: 3000,
+        });
+      }
+    },
+    async addToCart(context, payload) {
+      try {
+        applyToken()
+        let { msg } = (await axios.post(`${LigmaURL}cart/add`, payload)).data;
+        context.dispatch("fetchCart");
+        if (cookies.get("VerifiedUser")) {
+          sweet ({
+            title: "Add to Cart",
+            text: msg,
+            icon: "success",
+            timer: 4000,
+          });
+        } else {
+          router.push({ name: "login" });
+        }
+      } catch (e) {
+        sweet ({
+          title: "ERROR",
+          text: "An ERROR has occured when requesting an Agent Try Again Later",
+          icon: "error",
+          timer: 4000,
+        });
+      }
+    },
+    async deleteFromCart(context, payload) {
+      try {
+        applyToken()
+        let { data } = await axios.delete(`${LigmaURL}cart/delete/${payload}`);
+        if (data) {
+          context.dispatch("fetchCart");
+          sweet ({
+            title: "Removed Agent",
+            text: data.msg,
+            icon: "success",
+            timer: 2000,
+          });
+          setTimeout(() => {
+            location.reload()
+          }, 2000);
+        }
+      } catch (e) {
+        sweet ({
+          title: "ERROR",
+          text: "An ERROR occured while trying to remove this Agent",
+          icon: "error",
+          timer: 4000,
+        });
+      }
+    },
+    async clearCart(context) {
+      try {
+        let { data } = await axios.delete(`${LigmaURL}cart/delete`);
+        console.log(data);
+        context.dispatch("fetchCart");
+        sweet({
+          title: "The Cart was Cleared",
+          text: data.msg,
+          icon: "success",
+          timer: 4000,
+        });
+      } catch (e) {
+        sweet({
+          title: "ERROR",
+          text: "An ERROR occurred while trying to clear the cart",
+          icon: "error",
+          timer: 4000,
+        });
       }
     },
   },

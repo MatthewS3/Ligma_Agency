@@ -55,18 +55,38 @@
 
 <script>
 import CardView from '@/components/CardView.vue';
+import { getRole } from '@/service/userAuthenticate';
 export default {
   name: 'AgentsView',
   components: {
     CardView
   },
+  data() {
+    return {
+      cartPayload: {
+        orderID: null,
+        agentID: "",
+        userID: ""
+      }
+    }
+  },
+  methods: {
+    addToCart(ID) {
+      let data = { agentID: ID, userID: this.userID }
+      this.$store.dispatch('addToCart', data);
+    },
+  },
   computed: {
     agents() {
       return this.$store.state.agents
-    }
+    },
   },
   mounted() {
     this.$store.dispatch('fetchAgents')
+    let user = getRole()
+    if(user) {
+      this.userID = user.userID
+    }
   }
 }
 </script>
