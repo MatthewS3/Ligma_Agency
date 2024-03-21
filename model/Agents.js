@@ -4,7 +4,7 @@ class Agents {
         const qry = `
         SELECT agentID, agentCodeName, agentImage,
         agentRole, agentPrice, agentGender, agentStatus,
-        agentTier
+        agentTier, agentDesc
         FROM Agents;
         `
         db.query(qry, (err, results) => {
