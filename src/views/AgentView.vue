@@ -26,6 +26,9 @@
                         Rank : {{ agent.agentTier }}
                     </p>
                 </template>
+                <template #cardDesc>
+                <p>{{ agent.agentDesc }}</p>
+                </template>
             </CardView>
         </div>
     </div>

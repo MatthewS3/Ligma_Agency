@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col">
         <br>
-        <input type="text" placeholder="Search Agent by name" class="form-control">
+        <input type="text" placeholder="Search Agent by name" class="form-controll">
       </div>
       <div class="col">
         <br>
@@ -37,9 +37,9 @@
           <p class="card-text text-black bg-gradient bg-dark-subtle p-3">
             Rank : {{ agent.agentTier }}
           </p>
-          <!-- <p class="card-text text-dark bg-gradient bg-dark-subtle p-2">
-            Category: {{ agent.Category }}
-          </p> -->
+        </template>
+        <template #cardDesc>
+          <p>{{ agent.agentDesc }}</p>
         </template>
         <template #cardLink>
           <router-link class="viewLink" :to="{ name: 'agent', params: { id: agent.agentID } }">View Agent</router-link>
@@ -84,7 +84,7 @@ export default {
   mounted() {
     this.$store.dispatch('fetchAgents')
     let user = getRole()
-    if(user) {
+    if (user) {
       this.userID = user.userID
     }
   }
@@ -93,14 +93,14 @@ export default {
 
 <style>
 .viewLink {
-  color: #000;
+  color: #ddd;
   text-decoration: none;
   font-size: larger;
   font-weight: bold;
 }
 
 .viewLink:hover {
-  color: #000;
+  color: #FF003C;
 }
 
 .LG {
@@ -114,7 +114,7 @@ export default {
   letter-spacing: 2px;
 }
 
-.form-control {
+.form-controll {
   border: #FF003C solid 3px;
   border-radius: 15px 0;
   color: #000;

@@ -296,7 +296,7 @@ export default createStore({
         context.dispatch("fetchCart");
         if (cookies.get("VerifiedUser")) {
           sweet ({
-            title: "Add to Cart",
+            title: "Added to Cart",
             text: msg,
             icon: "success",
             timer: 4000,
@@ -307,7 +307,7 @@ export default createStore({
       } catch (e) {
         sweet ({
           title: "ERROR",
-          text: "An ERROR has occured when requesting an Agent Try Again Later",
+          text: "An ERROR has occured when Requesting an Agent Try Again Later",
           icon: "error",
           timer: 4000,
         });

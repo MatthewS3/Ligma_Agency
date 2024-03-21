@@ -145,47 +145,34 @@
         <br>
       </div>
       <div class="article">
-        <h2 class="highlight highlight-1">Game over?</h2>
+        <h2 class="highlight highlight-1">LIGMA AGENCY <i class="i">"Unseen. Unheard. Unrivaled."</i></h2>
         <div class="article-row">
           <div class="article-col article-col-1">
-            <p>Animi aut, atque quibusdam similique distinctio enim iure, blanditiis rerum autem illum eum in.
-              Dolorem quasi
-              aspernatur nemo deserunt quo, libero dolore atque magni, ullam nihil corrupti et illo earum?</p>
+            <br>
 
-            <figure><img src="https://assets.codepen.io/t-1/element5-digital-dwcC-OJ-bRs-unsplash.jpg"
+            <figure><img src="https://i.ibb.co/t3Nh411/desktop-wallpaper-hitman-logo-png-hitman-logo-to-black-hitman-thumbnail.jpg"
                 alt="three neon-lit skee ball lanes. " />
             </figure>
-            <p>Velit vero esse quisquam accusantium? Dolore alias, quaerat quod excepturi officiis ipsa placeat
-              officia necessitatibus illo, vero quasi esse aut. Doloremque nesciunt placeat animi saepe
-              tempore aspernatur, officia vitae laudantium!</p>
-
+            <br>
           </div>
           <div class=" article-col article-col-2">
+            <br>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis quidem est minima quam! Laborum
               odit quidem earum
               perferendis eius laudantium perspiciatis similique deleniti delectus suscipit, cum corrupti
               facere reprehenderit
-              esse.</p>
-            <p>Aperiam est ab harum alias quae rem, cumque vero. Dolore possimus quas eius dolor voluptatibus
-              cumque velit, ratione
-              aspernatur voluptatem? Nulla voluptatem quaerat placeat error, ipsam alias dignissimos odit
-              excepturi?</p>
-            <p>Consectetur sed, itaque modi fugit asperiores similique maxime voluptatum incidunt labore vero
-              cumque provident,
-              deleniti nam? Molestiae impedit nostrum soluta quo iure, iste, nobis expedita minus ad officia
-              dolor saepe.</p>
+              esse.
+            </p>
+            <br>
             <aside>
-              <blockquote class="bq-medium">Labore vero cumque provident, deleniti nam, cumque vero.</blockquote>
+              <blockquote class="bq-medium">Her Name was Hope, But the "P" Was Silent On Weekends.</blockquote>
             </aside>
+            <br>
             <p>Consectetur sed, itaque modi fugit asperiores similique maxime voluptatum incidunt labore vero
               cumque provident,
               deleniti nam? Molestiae impedit nostrum soluta quo iure, iste, nobis expedita minus ad officia
-              dolor saepe.</p>
-            <p>Aperiam est ab harum <a href="https://codepen.io/lshah/pen/QWpeOQw">alias quae rem, cumque vero.</a>
-              Dolore possimus quas eius dolor voluptatibus
-              cumque velit, ratione
-              aspernatur voluptatem? Nulla voluptatem quaerat placeat error, ipsam alias dignissimos odit
-              excepturi?</p>
+              dolor saepe.
+            </p>
           </div>
         </div>
         <br>
@@ -209,6 +196,10 @@ export default {
 .LG {
   color: #ddd;
   letter-spacing: 2px;
+}
+
+.i {
+  font-size: 20px;
 }
 
 .AT,
