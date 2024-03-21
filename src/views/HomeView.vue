@@ -115,7 +115,7 @@ export default {
   gap: 1.25em;
   color: #000;
   background-color: #ddd;
-  border: 1px solid #eceff133;
+  border: 1px solid #000;
   border-radius: 15px;
   transition: 0.7s;
 }
@@ -130,7 +130,7 @@ export default {
   gap: 1.25em;
   color: #000;
   background-color: #ddd;
-  border: 1px solid #eceff133;
+  border: 1px solid #000;
   border-radius: 15px;
   transition: 0.7s;
 }
@@ -145,7 +145,7 @@ export default {
   gap: 1.25em;
   color: #000;
   background-color: #ddd;
-  border: 1px solid #eceff133;
+  border: 1px solid #000;
   border-radius: 15px;
   transition: 0.7s;
 }

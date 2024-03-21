@@ -1,7 +1,6 @@
 <template>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <div id="container11">
-
         <div class="product-details">
             <slot name="cardTitle"></slot>
             <span class="hint-star star">
@@ -11,37 +10,39 @@
                 <i class="fa fa-star" aria-hidden="true"></i>
                 <i class="fa fa-star" aria-hidden="true"></i>
             </span>
-
-            <p class="information">" Let's spread the joy , here is Christmas , the most awaited day of the
-                year.Christmas
-                Tree is what one need the most. Here is the correct tree which will enhance your Christmas.</p>
-
-
-
+            <slot name="cardDesc"></slot>
             <div class="control">
-                <button class="btn">
+                <button @click="addToCart(id)" type="button" class="btn">
                     <span class="visa-card"><i class="fa fa-cc-visa" aria-hidden="true"></i></span>
                     <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+                </button>
+                <button type="button" class="btn">
                     <slot name="cardLink"></slot>
                 </button>
             </div>
-
         </div>
-
         <div class="product-image">
             <slot name="cardImage"></slot>
             <div class="info">
                 <slot name="cardInfo"></slot>
-                
             </div>
         </div>
-
     </div>
 </template>
 
 <script>
 export default {
     name: 'CardView',
+    methods: {
+        addToCart(agents) {
+            this.$store.dispatch(agents);
+        },
+    },
+    computed: {
+        cart() {
+            return this.$store.state.cart
+        },
+    },
 }
 </script>
 
@@ -71,15 +72,16 @@ export default {
     transform: scale(1.05);
 
 }
+
 .product-details {
-    color: #ddd;
+    color: #ff003c;
     position: relative;
     text-align: left;
     overflow: hidden;
     padding: 30px;
     height: 100%;
     float: left;
-    width: 40%;
+    width: 45%;
 }
 
 .hint-star {
@@ -90,9 +92,11 @@ export default {
 }
 
 #container11 .product-details>p {
-    text-align: center;
-    font-size: 16px;
-    color: #7d7d7d;
+    margin-top: 5px;
+    padding: 5px;
+    text-align: left;
+    font-size: 20px;
+    color: #ddd;
 
 }
 
@@ -105,8 +109,9 @@ export default {
 .btn {
     /* transform: translateY(0px); */
     transition: 0.3s ease-in-out;
-    background: #ddd;
+    background: #000;
     border-radius: 50px;
+    height: 50px;
     position: relative;
     overflow: hidden;
     cursor: pointer;
@@ -121,7 +126,7 @@ export default {
 .btn:hover {
     transform: scale(1.1);
     border: 2px solid #000;
-    background: #ddd;
+    background: #000;
     color: #ff003c;
     border-radius: 50px;
 
