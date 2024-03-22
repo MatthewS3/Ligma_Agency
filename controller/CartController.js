@@ -1,13 +1,13 @@
 import { express } from "express";
 import bodyParser from "body-parser";
-import { cart } from "../model/Cart.js";
+import { Cart } from "../model/Cart.js";
 import { verifyAToken } from "../middleware/UserAuthentication.js";
 
 const cartRouter = express.Router()
 
 cartRouter.get('/', verifyAToken, (req, res) => {
     try {
-        cart.fetchCart(req, res)
+        Cart.fetchCart(req, res)
     } catch (e) {
         res.json ({
             status: res.statusCode,
@@ -17,7 +17,7 @@ cartRouter.get('/', verifyAToken, (req, res) => {
 })
 cartRouter.delete('/delete/:id', bodyParser.json(). verifyAToken, (req, res) => {
     try {
-        cart.deleteAgent(req, res)
+        Cart.deleteAgent(req, res)
     } catch (e) {
        res.json({
         status: res.statusCode,
@@ -27,7 +27,7 @@ cartRouter.delete('/delete/:id', bodyParser.json(). verifyAToken, (req, res) => 
 })
 cartRouter.delete('/delete', bodyParser.json(), verifyAToken ,(req, res) => {
     try {
-        cart.clearCart(req, res)
+        Cart.clearCart(req, res)
     } catch (e) {
         res.json ({
             status: res.statusCode,
@@ -37,7 +37,7 @@ cartRouter.delete('/delete', bodyParser.json(), verifyAToken ,(req, res) => {
 })
 cartRouter.post('/add',  bodyParser.json(), verifyAToken, (req, res) => {
     try {
-        cart.addToCart(req, res)
+        Cart.addToCart(req, res)
     } catch (e) {
         res.json({
             status: res.statusCode,
