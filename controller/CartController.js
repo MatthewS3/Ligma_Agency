@@ -1,4 +1,4 @@
-import { express } from "express";
+import  express  from "express";
 import bodyParser from "body-parser";
 import { Cart } from "../model/Cart.js";
 import { verifyAToken } from "../middleware/UserAuthentication.js";
