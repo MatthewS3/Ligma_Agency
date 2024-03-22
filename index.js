@@ -1,10 +1,12 @@
 import { userRouter, express } from "./controller/UserController.js";
 import { agentRouter } from "./controller/AgentController.js";
+import { cartRouter }  from './controller/CartController.js';
 import cookieParser from "cookie-parser";
 import { errorHandling } from "./middleware/ErrorHandling.js";
 import path from 'path'
 import cors from 'cors'
 import { config } from "dotenv";
+import { cartRouter } from "./controller/CartController.js";
 config()
 
 const app = express()
@@ -33,6 +35,7 @@ app.get('^/$|/Ligma_Agency', (req, res) => {
 })
 app.use('/users', userRouter)
 app.use('/agents', agentRouter)
+app.use('/cart', cartRouter)
 app.use(errorHandling)
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
