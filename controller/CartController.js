@@ -1,7 +1,7 @@
 import { express } from "express";
 import bodyParser from "body-parser";
 import { cart } from "../model/Cart.js";
-import { verifyAToken } from "../middleware/UserAuthentication";
+import { verifyAToken } from "../middleware/UserAuthentication.js";
 
 const cartRouter = express.Router()
 
@@ -11,7 +11,7 @@ cartRouter.get('/', verifyAToken, (req, res) => {
     } catch (e) {
         res.json ({
             status: res.statusCode,
-            msg: "An ERROR occured when attempting to fetch your cart"
+            msg: "An ERROR Occured When Attempting to Fetch Your Cart"
         })
     }
 })
