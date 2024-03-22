@@ -15,7 +15,7 @@ cartRouter.get('/', verifyAToken, (req, res) => {
         })
     }
 })
-cartRouter.delete('/delete/:id', bodyParser.json(). verifyAToken, (req, res) => {
+cartRouter.delete('/delete/:id', bodyParser.json(), verifyAToken, (req, res) => {
     try {
         Cart.deleteAgent(req, res)
     } catch (e) {
