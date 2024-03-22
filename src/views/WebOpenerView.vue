@@ -1,10 +1,11 @@
 <template>
     <div class="access-spinner">
         <pre class="access-spinner__text">
-          <!-- Text related to the spinner -->
+          
         </pre>
     </div>
 </template>
+
 <script>
 export default {
     mounted() {
@@ -21,10 +22,10 @@ export default {
             if (count === textArray.length) {
                 count = 0;
             }
-        }, 20);
+        }, .3);
         setTimeout(() => {
             this.$router.push({ name: "home" }); // Navigate to home page
-        }, 22000);
+        }, 60000);
     },
 };
 const textString = `.
@@ -41,30 +42,6 @@ const textString = `.
                         Latency:        215 Bits
                         Timer:          20.75 sec
                     }
-
-        Madeira, Manchester, Madrid, Turin
-        ............................................
-            & Manchester Again,
-            ............................................
-                 Wreathed In RED
-                 ............................................
-                    Restored to this great gallery of the game
-                    ............................................
-                        a walking work of art, 
-                        ............................................
-                            Vintage Beyond Valuation
-                            ............................................
-                        Beyond Vorgery or Imitation, 18 Years since
-                        ............................................
-                    since that trembling teenager or touch and tease
-                    ............................................
-                first tip toed onto this storied stage
-                ......................................
-            now in his emaculate maturity 
-            .............................
-        CR7 REUNITED
-        ....................
-
         
   ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣶⣶⣾⣿⣿⣿⣿⣶⣷⣶⣤⣄⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -102,14 +79,6 @@ const textString = `.
 ⠛⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠋
 
 
-⢠⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣴⡄
-⢸⣿⣿⣿⠛⠛⣿⣿⣿⣿⣿⡟⠛⠛⠛⠛⠛⠛⣿⣿⣿⠿⠛⠛⠛⠿⣿⣿⠛⠛⠛⠛⠛⠛⢻⣿⠻⣿⣿⣿⣿⡟⠛⢻⣿⠛⠛⠛⠛⠛⠿⣿⣿⣿⣿⡇
-⢸⣿⣿⣿⠀⠀⣿⣿⣿⣿⣿⣿⠀⢰⣶⣶⣶⣶⣿⡟⠁⢀⣴⣶⣤⣤⣾⣿⠀⠀⣶⣶⣶⣶⣾⣿⠂⠈⠻⣿⣿⡇⠀⢸⣿⠀⠀⣶⣶⣤⡀⠈⢿⣿⣿⡇
-⠨⣿⣿⣿⠀⠀⣿⣿⣿⣿⣿⣿⠀⠈⠉⠉⢉⣿⣿⠁⠀⣿⣿⣿⠉⠉⢹⣿⠀⠀⠉⠉⠉⣹⣿⣿⠀⢸⣦⠈⠻⣧⠀⢸⣿⠀⠀⣿⣿⣿⣿⠀⢸⣿⣿⡇
-⠀⣿⣿⣿⠀⠀⣿⣿⣿⣿⣿⣷⠀⢸⣿⣿⣿⣿⣿⣇⠀⠻⢿⣿⠿⠀⢸⣿⠀⠀⣿⣿⣿⣿⣿⣿⠀⢸⣿⣷⣄⡀⠀⢸⣿⠀⠀⣿⣿⡿⠃⠀⣼⣿⣿⡇
-⢀⣿⣿⣿⣀⣀⣀⣀⣀⣀⣼⣯⣀⣀⣀⣀⣀⣀⣿⣿⣷⣄⣀⣀⣀⣤⣾⣿⣀⣀⣀⣀⣀⣀⣸⣿⣀⣸⣿⣿⣿⣿⣦⣸⣿⣄⣀⣀⣀⣀⣠⣾⣿⣿⣿⡇
-
-
 Server Has Been Located :
     Server is located at IP Address: 159.753.21.29
         Server being Hacked:
@@ -125,51 +94,6 @@ Server Has Been Located :
                                 OTP:        3-13-14
                                 Nommer:     28
                             }
-
-  "LIGMA AGENCY // local / scanning...",
-    "IP ADDRESS: 127.366.321.22
-        "scanning ports...",
-
-            "UR BACKDOOR FOUND (IM GETTIN HARD)",
-                "ENTERING UR BACKDOOR (AHHHHHHHHHHHHHHHHH)",
-                    "BACKDOOR VIOLENTLY USED (TRUST ME ZADDY)",
- 
-  "WAGWAN.EXE  RTY.909/55/8",
-    "...locating vulnerabilities...",
-        "...NO vulnerabilities found...",
-            "DEPLOY SERVER TO HANOVER PARK CLINIC",
-
-
-    "SCAN: ____________ 0187.0550.0554.0080",  
-        "SCAN: ____________ 0187.0550.0554.0080",  
-            "SCAN: ____________ 0187.0550.0554.0080",  
-                "SCAN: ____________ 0100.1100.0554.0080",
-                    "SCAN: ____________ 0020.4580.0553.0080",
-                        "SCAN: ____________ 0001.1258.0554.0550",
-                            "SCAN: "21 CAN U DO SUM FOR ME" >>>>>>
-                        "SCAN: ____________ 0012.1245.0553.0030",
-                     "SCAN: ____________ 0100.9854.0554.0080",
-                "SCAN: ____________ 0020.0018.0553.0080",
-            "SCAN: ____________ 0100.2010.0554.0080",
-        "SCAN: ____________ 0187.0550.0554.0080", 
-    "SCAN: ____________ 0187.0550.0554.0080",  
- 
-
-________________________________________________________
-
-  Currently Runnin the block ...
-    Securing the load ...
-        Holy Shit is that a Skyline ........
-           
-                     \______________________/
-                      __/__|_________|__\__
-                    /⭕⭕____________⭕⭕\
-                    |_____/__GTR-R34__\_____|
-                    \💥💥|_|_|_|_|_|_|💥💥/
-
-            || STUTUTUTUTUTUTUTUTUTUTUTUTUTUTUTUTUU ||
-    
-__________________________________________________________
 
     Final Stage of activation:
     {
@@ -191,22 +115,6 @@ __________________________________________________________
     }
     !!!! Activation Complete !!!!
 
-    SUCCESSFULLY GRANTED PERMISSION TO LIGMA AGENCY
-    ....
-        WE'VE LOCATED YOUR IP AND HAVE GRANTED PERMISSION
-        ....
-            FULL CONFIDENSIALLITY WILL BE KEPT SO WE EXPECT THE SAME
-            ....
-                THIS HACK WILL BE DEACTIVATED SHORTLY
-                ....
-                    THANK YOU FOR UR PAITIENTS
-                ....
-                WE CLEANING THE FLOOR GOU NOW
-            ....
-            WE CLOSING THE INCOGNITO TABS
-        ....
-        WE EATING A GATSBY ALSO 
-    ....
     ANYWAY WELCOME TO LIGMA AGENCY
         `;
 </script>
@@ -237,7 +145,7 @@ body {
 }
 
 .access-spinner__character {
-    animation: type 500ms linear;
+    animation: type .001s  linear;
     color: #ff003c;
 }
 

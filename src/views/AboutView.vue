@@ -8,13 +8,14 @@
     </div>
     <div class="main-container">
       <div class="article">
-        <p class="article-para-1">Welcome to the clandestine world of <span class="LA">L</span>igma <span
-            class="LA">A</span>gency, where precision meets discretion in
-          the art of contract elimination.<br> Founded on the principles of <span class="LA">E</span>xpertise , <span
-            class="LA">R</span>eliability and <span class="LA">A</span>nonymity , <span class="LA">L</span>igma <span
+        <p class="opo">Welcome to the clandestine world of <span class="LA">L</span>igma <span
+            class="LA">A</span>gency, <br> Where precision meets discretion in
+          the art of contract elimination. <br> Founded on the principles of <span class="LA">E</span>xpertise , <span
+            class="LA">R</span>eliability and <span class="LA">A</span>nonymity , <br> <span class="LA">L</span>igma <span
             class="LA">A</span>gency
-          stands as a beacon <br> of excellence in the realm of professional <span class="LA">A</span>ssassinations.
+          stands as a beacon of excellence in the realm <br> of professional <span class="LA">A</span>ssassinations.
         </p>
+       
         <br>
         <div class="article-row">
           <div class="article-col article-col-1">
@@ -148,34 +149,29 @@
         <h2 class="highlight highlight-1">LIGMA AGENCY <i class="i">"Unseen. Unheard. Unrivaled."</i></h2>
         <div class="article-row">
           <div class="article-col article-col-1">
-            <br>
 
-            <figure><img src="https://i.ibb.co/t3Nh411/desktop-wallpaper-hitman-logo-png-hitman-logo-to-black-hitman-thumbnail.jpg"
+            <figure><img src="https://i.ibb.co/7k74SM4/092a56438c41adbed217480947f77108-transformed.jpg"
                 alt="three neon-lit skee ball lanes. " />
             </figure>
             <br>
           </div>
           <div class=" article-col article-col-2">
             <br>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis quidem est minima quam! Laborum
-              odit quidem earum
-              perferendis eius laudantium perspiciatis similique deleniti delectus suscipit, cum corrupti
-              facere reprehenderit
-              esse.
+            <p>As the shadows deepen and the echoes of our actions fade into the night, the Ligma Agency stands as a
+              testament to defiance, to courage, and to the relentless pursuit of justice.
             </p>
             <br>
             <aside>
               <blockquote class="bq-medium">Her Name was Hope, But the "P" Was Silent On Weekends.</blockquote>
             </aside>
             <br>
-            <p>Consectetur sed, itaque modi fugit asperiores similique maxime voluptatum incidunt labore vero
-              cumque provident,
-              deleniti nam? Molestiae impedit nostrum soluta quo iure, iste, nobis expedita minus ad officia
-              dolor saepe.
+            <p>But our legacy transcends mere legend. It is etched in the annals of history, woven into the fabric of
+              revolutions past and present. For every tyrant toppled, for every innocent soul liberated, our mark is
+              indelible. For as long as injustice persists, as long as tyranny reigns, the spirit of the Ligma Agency
+              shall endure, a beacon of hope in the darkest of nights.
             </p>
           </div>
         </div>
-        <br>
         <aside>
           <blockquote class="bq-long">You Forget A Thousand Things Everyday How Bout U Make Sure This Is One Of Em.
           </blockquote>
@@ -193,6 +189,74 @@ export default {
 </script>
 
 <style>
+.opo{
+  color: #ddd; 
+  font-size: 25px;
+  margin: 10px 0 0 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 1445px;
+  text-shadow: 0 0 0.7em #ddd;
+  opacity: 1;
+  animation-name: opo;
+  animation-duration: 2.6s;
+}
+@keyframes opo{
+  /*flick 1*/
+  0% {
+    opacity:0;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  20% {
+    opacity: 0.4;
+  }
+  40% {
+    opacity: 0.5;
+  }
+  /* two flicks*/
+ 
+  43% {
+    opacity: 0;
+  }
+  47% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.75;
+  }
+  51% {
+    opacity: 0;
+  }
+ 
+  53% {
+    opacity: 0.2;
+  }
+  58% {
+    opacity: 0.95;
+  }
+  61% {
+    opacity: 0.5;
+  }
+  62% {
+    opacity: 0;
+  }
+  
+  70% {
+    opacity: 0;
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+  95% {
+    opacity: 0;
+    text-shadow: 0 0 3em rgb(255, 255, 255);
+  }
+  100% {
+    
+    opacity: 1;
+  }
+}
+/* typing animation on top of page */
 .LG {
   color: #ddd;
   letter-spacing: 2px;
@@ -430,4 +494,13 @@ blockquote {
     max-width: 102.4rem;
   }
 }
+/* Media queries for smaller screens */
+@media screen and (max-width: 1254px) {
+      .opo,
+      .article-col-1,
+      .article-col-2,
+      .article-col-3 {
+        max-width: 350px
+      }
+    }
 </style>

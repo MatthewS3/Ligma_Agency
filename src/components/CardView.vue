@@ -12,7 +12,7 @@
             </span>
             <slot name="cardDesc"></slot>
             <div class="control">
-                <button @click="addToCart(id)" type="button" class="btn">
+                <button @click="addToCart()" type="button" class="btn">
                     <span class="visa-card"><i class="fa fa-cc-visa" aria-hidden="true"></i></span>
                     <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
                 </button>
@@ -34,8 +34,17 @@
 export default {
     name: 'CardView',
     methods: {
-        addToCart(agents) {
-            this.$store.dispatch(agents);
+        addToCart() {
+            const payload = {
+            // Define your payload properties here
+            // For example:
+            agentImage: '',
+            agentCodeName: '',
+            agentTier: '',
+            agentRole: '',
+            agentPrice: ''
+        };
+            this.$store.dispatch('addToCart', payload);
         },
     },
     computed: {

@@ -21,9 +21,9 @@
                             <h4>Page links</h4>
                         </div>
                         <ul>
-                            <li><i class="fa fa-home" aria-hidden="true"></i> Home</li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><i class="fa fa-home" aria-hidden="true"></i> - Home</li>
+                            <li><i class="fa fa-user-secret" aria-hidden="true"></i> - About</li>
+                            <li><i class="fa fa-phone" aria-hidden="true"></i> - Contact</li>
                         </ul>
                     </div>
 
@@ -32,9 +32,9 @@
                             <h4>More Info</h4>
                         </div>
                         <ul>
-                            <li><a href="#">Lorem ipsum</a></li>
-                            <li><a href="#">Dolor sit amet</a></li>
-                            <li><a href="#">Ed do eiusmod tempor incididunt</a></li>
+                            <li><a href="#">Agent Requests Enquiries</a></li>
+                            <li><a href="#">Customer Care Relations</a></li>
+                            <li><a href="/contact">Contact Info</a></li>
                         </ul>
                     </div>
                     <div class="col-md-6 col-lg-4 open-hours">
@@ -68,7 +68,7 @@
                             </tbody>
                         </table>
                         <hr>
-                        <div class="footer-logo">
+                        <!-- <div class="footer-logo">
                             <table>
                                 <tbody>
                                     <tr>
@@ -80,7 +80,7 @@
                                     </tr>
                                 </tbody>
                             </table>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -240,7 +240,9 @@ ul.footer-social i:hover {
 
 footer .table td {
     position: relative;
-    padding: 4px 0;
+    background-color: #ddd;
+    font-weight: bold;
+    padding: 7px;
 }
 
 footer hr {
