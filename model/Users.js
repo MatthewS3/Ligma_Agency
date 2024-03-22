@@ -108,7 +108,7 @@ class Users {
       if (err) throw err;
       if (!result?.length) {
         res.json({
-          status: statusCode,
+          status: res.statusCode,
           msg: "Wrong Email Address or Password Provided",
         })
       } else {
