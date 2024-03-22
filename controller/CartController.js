@@ -1,7 +1,7 @@
 import { express } from "express";
 import bodyParser from "body-parser";
 import { cart } from "../model/Cart.js";
-import { verifyAToken } from "../middleware/UserAuthentication";
+import { verifyAToken } from "../middleware/UserAuthentication.js";
 
 const cartRouter = express.Router()
 
