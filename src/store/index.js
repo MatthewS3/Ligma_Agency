@@ -160,36 +160,52 @@ export default createStore({
     },
     async login(context, payload) {
       try {
-        const {msg, token, result} = (await axios.post(`${LigmaURL}users/login`, payload)).data
+        const {
+          msg,
+          token,
+          result
+        } = (
+          await axios.post(`${LigmaURL}users/login`, payload)
+        ).data;
         if (result) {
-          context.commit('setUser', {msg, result})
-          cookies.set('LegitUser', {
-           token, result
-          })
-          cookies.set("userRole", result.userRole)
-          sweet ({
+          context.commit("setUser", {
+            msg,
+            result,
+          });
+          cookies.set("VerifiedUser", token, {
+            httpOnly: true,
+            secure: true,
+            sameSite: "None",
+            maxAge: 3600000,
+          });
+          sweet({
             title: msg,
-            text: `Welcome Back,
-            ${result?.UserFirstName} ${result?.UserLastName}`,
-            icon: 'success',
-            timer: 2000
-          })
-            router.push({name: 'home'})
-        }else {
-          sweet ({
-            title: 'info',
-            text: 'text of login',
-            icon: 'info',
-            timer: 2000
-          })
+            text: `Welcome, 
+            ${result?.userFirstName} ${result?.userLastName}`,
+            icon: "success",
+            timer: 2000,
+          });
+          router.push({
+            name: "home",
+          });
+          setTimeout(() => {
+            location.reload();
+          }, 1000);
+        } else {
+          sweet({
+            title: "info",
+            text: msg,
+            icon: "info",
+            timer: 4000,
+          });
         }
-      }catch (e) {
-        sweet ({
-          title: 'ERROR',
-          text: 'FAILED To Login',
-          icon: 'error',
-          timer: 2000
-        })
+      } catch (e) {
+        sweet({
+          title: "Error",
+          text: "Failed to login.",
+          icon: "error",
+          timer: 4000,
+        });
       }
     },
     async fetchAgents(context) {
@@ -292,22 +308,31 @@ export default createStore({
     async addToCart(context, payload) {
       try {
         applyToken()
-        let { msg } = (await axios.post(`${LigmaURL}cart/add`, payload)).data;
+        let {
+          msg
+        } = (await axios.post(`${LigmaURL}cart/add`, payload)).data;
         context.dispatch("fetchCart");
-        if (cookies.get("VerifiedUser")) {
-          sweet ({
-            title: "Added to Cart",
-            text: msg,
-            icon: "success",
-            timer: 4000,
-          });
-        } else {
-          router.push({ name: "login" });
+        if (msg) {
+          if (!cookies.isKey('LegitUser')) {
+            sweet({
+              title: "Add to cart",
+              text: msg,
+              icon: "info",
+              timer: 4000,
+            });
+          } else {
+            sweet({
+              title: "Add to cart",
+              text: msg,
+              icon: "success",
+              timer: 4000,
+            });
+          }
         }
       } catch (e) {
-        sweet ({
-          title: "ERROR",
-          text: "An ERROR has occured when Requesting an Agent Try Again Later",
+        sweet({
+          title: "Error",
+          text: "Please try to add this product at a different time",
           icon: "error",
           timer: 4000,
         });

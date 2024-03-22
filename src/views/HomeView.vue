@@ -270,4 +270,20 @@ export default {
     0 0 2.5em 2em var(--glow-spread-color),
     inset 0 0 .5em .25em var(--glow-color);
 }
+
+ /* Media Queries */
+ @media only screen and (max-width: 1254px) {
+    .drac {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cards__inner {
+      width: 100%;
+    }
+    .home-words {
+      font-size: small;
+      display: none !important;
+    }
+  }
 </style>

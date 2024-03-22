@@ -12,18 +12,18 @@
                 <div class="sign-in-htm">
                     <div class="group">
                         <label for="user" class="label">Username / Email</label>
-                        <input id="user" type="text" class="input">
+                        <input id="user" type="text" class="input"  v-model="userEmail">
                     </div>
                     <div class="group">
-                        <label for="pass" class="label">Password</label>
-                        <input id="pass" type="password" class="input" data-type="password">
+                        <label for="pass" class="label" input="input">Password</label>
+                        <input id="pass" type="password" class="input" data-type="password" input v-model="userPassword">
                     </div>
                     <div class="group">
                         <input id="check" type="checkbox" class="check" checked>
                         <label for="check"><span class="icon"></span> Keep me Signed in</label>
                     </div>
                     <div class="group">
-                        <input type="submit" class="button" value="LOG In">
+                        <input type="submit" @click="login()" class="button" value="LOG In">
                     </div>
                     <div class="hr"></div>
                     <div class="foot-lnk">
@@ -67,20 +67,17 @@ export default {
             userFirstName: "",
             userLastName: "",
             userEmail: "",
-            userPassword: "",
-            userRole: ""
+            userContact: "",
+            userPassword: ""
         }
     },
     methods: {
         login() {
-            this.data = { userEmail: this.userEmail, userPassword: this.userPassword }
-            this.$store.dispatch('login', this.$data)
-        },
-        register() {
-            this.$store.dispatch('register', this.$data)
-        },
+            this.data = { userEmail: this.emailAdd, userPassword: this.userPassword }
+            this.$store.dispatch('login', this.data)
+        }
+    },
 
-    }
 }
 </script>
 
